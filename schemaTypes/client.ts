@@ -187,7 +187,12 @@ export default defineType({
 							return {
 								title: `${images.length} Image${images.length === 1 ? "" : "s"}`,
 								subtitle: "Image Set",
-								media: images && images.length >= 1 && images[0].asset ? images[0].asset : null,
+								media:
+									images && images.length >= 1 && images[0].asset	// check whether there are any items in the array and, if so, that the first item has an asset
+										? images[0].asset							// if the above is true, use the asset of the first item as the media preview
+										: images.length === 1						// if it is false, check whether there is only one item in the array
+											? ImageIcon								// if there is only one item in the array, use the singular `ImageIcon`
+											: null,									// if there is more than one item in the array, use the plural `ImagesIcon`
 							};
 						},
 					},
