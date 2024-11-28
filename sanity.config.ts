@@ -1,9 +1,10 @@
-import { defineConfig } from "sanity"
+import { defineConfig } from "sanity";
 import { StructureBuilder, structureTool } from "sanity/structure"
 import { siteInfoIcon } from "./schemaTypes/siteInfo";
 import { media, mediaAssetSource } from "sanity-plugin-media";
-import { visionTool } from "@sanity/vision"
-import { schemaTypes } from "./schemaTypes"
+import { visionTool } from "@sanity/vision";
+import { schemaTypes } from "./schemaTypes";
+import "./custom.css";
 
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 const singletonTypes = new Set(["siteInfo", "media.tag"]);

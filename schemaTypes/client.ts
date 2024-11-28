@@ -5,6 +5,16 @@ export default defineType({
 	name: "client",
 	type: "document",
 	icon: UserIcon,
+	fieldsets: [
+		{
+			name: "yearsActive",
+			title: "Year(s) Active",
+			// description
+			options: {
+				columns: 2,
+			},
+		},
+	],
 	fields: [
 		defineField({
 			name: "name",
@@ -32,6 +42,7 @@ export default defineType({
 			type: "number",
 			title: "Start Year",
 			// description
+			fieldset: "yearsActive",
 		}),
 		defineField({
 			name: "isCurrent",
@@ -42,6 +53,7 @@ export default defineType({
 			options: {
 				layout: "checkbox",
 			},
+			fieldset: "yearsActive",
 		}),
 		defineField({
 			name: "endYear",
@@ -49,6 +61,7 @@ export default defineType({
 			title: "End Year",
 			// description
 			hidden: ({document}) => document?.isCurrent as boolean,
+			fieldset: "yearsActive",
 		}),
 		defineField({
 			name: "location",
